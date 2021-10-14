@@ -25,7 +25,7 @@ static_dir = BASE_DIR/'static'
 SECRET_KEY = 'django-insecure-5=p@-picya4kkz74@a%#ii22u61askp(#w5uh=^=8rba!xk)^!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['checkTicket.checkapp.com', '127.0.0.1']
 
