@@ -25,9 +25,9 @@ static_dir = BASE_DIR/'static'
 SECRET_KEY = 'django-insecure-5=p@-picya4kkz74@a%#ii22u61askp(#w5uh=^=8rba!xk)^!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['checkTicket.checkapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -83,7 +83,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -144,4 +143,7 @@ CACHES = {
     }
 }
 
+import django_heroku
+
 QR_CODE_CACHE_ALIAS = 'qr-code'
+django_heroku.settings(locals())
