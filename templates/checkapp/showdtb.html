@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends "checkapp/base.html" %}
+{% load qr_code %}
+
+
+{% block body_block %}
+
+  <h1>Show database</h1>
+  {% if th_data %}
+    <table>
+      <thead>
+        <th>id</th>
+        <th>Full name</th>
+        <th>StudentID/CardID</th>
+        <th>Year of Birth</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>University</th>
+        <th>Created time</th>
+        <th>Time of scan</th>
+        <th>Last scanned time</th>
+        <th>QR code</th>
+      </thead>
+      <tbody>
+      {% for row in th_data %}
+        <tr>
+          <td><a href="{{ row.qr_link_local }}">{{ row.user_id }}</a></td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.CardId }}</td>
+          <td>{{ row.YearofBirth }}</td>
+          <td>{{ row.email }}</td>
+          <td>{{ row.phone }}</td>
+          <td>{{ row.school }}</td>
+          <td>{{ row.created_time }}</td>
+          <td>{{ row.times_of_scan }}</td>
+          <td>{{ row.last_scanned }}</td>
+          <td>{% qr_from_text row.qr_link_heroku size="T" image_format="png" error_correction="L" %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <h2>Data not founded!</h2>
+  {% endif %}
+
+{% endblock %}

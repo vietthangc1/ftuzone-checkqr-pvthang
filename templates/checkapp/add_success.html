@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "checkapp/base.html" %}
+
+{% block body_block %}
+
+  <h2>Add success!</h2>
+  <a href="{% url 'app:adddtb' %}">Add more</a> <br>
+  <a href="{% url 'app:showdtb' %}">Show database</a>
+
+{% endblock %}

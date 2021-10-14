@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "checkapp/base.html" %}
+
+{% block body_block %}
+
+  {% if th_added %}
+    <h1>Added</h1>
+  {% else %}
+    <h1>Add database</h1>
+    <img src="{%" alt="">
+    <form action="" method="POST">
+      {% csrf_token %}
+      {{ th_form.as_p }}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  {% endif %}
+
+{% endblock %}

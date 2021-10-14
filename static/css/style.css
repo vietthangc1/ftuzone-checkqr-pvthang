@@ -1,0 +1,23 @@
+table {
+  line-height: 2rem;
+}
+
+td, th {
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px gray solid;
+}
+
+.scan-img {
+  width: 30%;
+  margin: auto;
+  display: block;
+}
+
+.scan-info {
+  margin: 15px auto;
+}
+
+.scan-attr {
+  color: red
+}

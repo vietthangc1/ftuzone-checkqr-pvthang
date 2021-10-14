@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "checkapp/base.html" %}
+{% load static %}
+
+{% block body_block %}
+  {% if th_data == None %}
+    <h1>Wrong ticket!</h1>
+    <img src="{% static 'images/wrong.png' %}" class="scan-img" alt="">
+  {% else %}
+    {% if th_check %}
+      <img src="{% static 'images/tick.png' %}" alt="" class="scan-img">
+    {% else %}
+      <img src="{% static 'images/warning.png' %}" alt="" class="scan-img">
+    {% endif %}
+    <div class="scan-info">
+      <h3><span class = "scan-attr">Name:</span> {{ th_data.name }}</h3>
+      <h3><span class = "scan-attr">YOB:</span> {{ th_data.YearofBirth }}</h3>
+      <h3><span class = "scan-attr">Email:</span> {{ th_data.email }}</h3>
+      <h3><span class = "scan-attr">University:</span> {{ th_data.school }}</h3>
+      <h3><span class = "scan-attr">Created at:</span> {{ th_data.created_time }}</h3>
+      <h3><span class = "scan-attr">Times scan:</span> {{ th_data.times_of_scan }}</h3>
+      <h3><span class = "scan-attr">Last scan:</span> {{ th_data.last_scanned }}</h3>
+    </div>
+  {% endif %}
+
+{% endblock %}
