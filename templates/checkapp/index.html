@@ -3,8 +3,15 @@
 
 {% block body_block %}
 
-  <h1>FTU Zone scan ticket application</h1>
-  <p>Thêm khán giả ở mục Add database</p>
-  <p>Xem ds khán giả và lấy mã qr ở Show database</p>
+  <h1>FTU Zone ticket scanning</h1>
+  <p>- Login: đăng nhập (chỉ khi logged in thành công mới có thể add và xóa database)</p>
+  <p>- Add database: thêm khán giả</p>
+  <p>- Show database: chi tiết thông tin khán giả, mã qr để download gửi cho khán giả cho checkin (gửi qr nhớ nhắc ngta ko được quét cho đến khi checkin)</p>
+  <p>- Scan:</p>
+  <ul>
+    <li>Sai: không hiện hoặc hiện wrong</li>
+    <li>Mã đúng và quét lần đầu: hiện dấu tick xanh</li>
+    <li>Mã đúng nhưng quét từ lần 2: hiện kí hiệu warning và thông tin chi tiết (có ghi quét lần thứ mấy, thời gian quét lần cuối)</li>
+  </ul>
 
 {% endblock %}

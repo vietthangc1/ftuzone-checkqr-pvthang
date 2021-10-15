@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import datetime
 import uuid
+from django.contrib.auth.models import User
+from django.db.models.base import Model
 
 # Create your models here.
 class Customers(models.Model):
@@ -27,3 +29,9 @@ class Customers(models.Model):
 
   def __str__(self):
     return self.name+self.YearofBirth+self.school
+
+class UserProfile(models.Model):
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.user.username

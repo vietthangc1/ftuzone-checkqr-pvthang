@@ -1,3 +1,8 @@
+.nav-message {
+  margin-right: 30px;
+  color: white;
+}
+
 table {
   line-height: 2rem;
 }
@@ -9,7 +14,7 @@ td, th {
 }
 
 .scan-img {
-  width: 30%;
+  width: 50%;
   margin: auto;
   display: block;
 }
@@ -20,4 +25,14 @@ td, th {
 
 .scan-attr {
   color: red
+}
+
+.form-class {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.form-control {
+  width: 50%;
+  margin: 5px auto
 }

@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
@@ -142,6 +142,9 @@ CACHES = {
         'TIMEOUT': 3600
     }
 }
+
+#LOGIN
+LOGIN_URL = '/app/login'
 
 import django_heroku
 

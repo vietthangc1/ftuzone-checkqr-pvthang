@@ -9,7 +9,7 @@
   {% if th_data %}
     <table>
       <thead>
-        <th>id</th>
+        <th>Delete</th>
         <th>Full name</th>
         <th>StudentID/CardID</th>
         <th>Year of Birth</th>
@@ -24,7 +24,7 @@
       <tbody>
       {% for row in th_data %}
         <tr>
-          <td><a href="{{ row.qr_link_local }}">{{ row.user_id }}</a></td>
+          <td><a href="/app/delete/{{row.user_id}}"><i class="fas fa-trash-alt"></i></a></td>
           <td>{{ row.name }}</td>
           <td>{{ row.CardId }}</td>
           <td>{{ row.YearofBirth }}</td>
