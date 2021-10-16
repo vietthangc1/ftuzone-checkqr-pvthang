@@ -25,7 +25,7 @@ class Customers(models.Model):
   @property
   def qr_link_heroku(self):
       "Returns the link of qr code for user_id."
-      return "https://ftuzone-checkqr-pvthang.herokuapp.com/app/scan/"+str(self.user_id)
+      return "http://vietthangc1.pythonanywhere.com/app/scan/"+str(self.user_id)
 
   def __str__(self):
     return self.name+self.YearofBirth+self.school
