@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "checkapp/base.html" %}
+
+{% block body_block %}
+
+    <h1>Delete {{customers}} ?</h1>
+    <img src="{%" alt="">
+    <form action="" method="POST" class="form-class">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Delete</button>
+      <a href="{% url 'app:customers_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+{% endblock %}

@@ -6,7 +6,7 @@
 {% block body_block %}
 
   <h1>Show database</h1>
-  {% if th_data %}
+  {% if customers_list %}
     <table>
       <thead>
         <th>Delete</th>
@@ -22,9 +22,9 @@
         <th>QR code</th>
       </thead>
       <tbody>
-      {% for row in th_data %}
+      {% for row in customers_list %}
         <tr>
-          <td><a href="/app/delete/{{row.user_id}}"><i class="fas fa-trash-alt"></i></a></td>
+          <td><a href="{% url 'app:customers_delete' pk=row.user_id %}"><i class="fas fa-trash-alt"></i></a></td>
           <td>{{ row.name }}</td>
           <td>{{ row.CardId }}</td>
           <td>{{ row.YearofBirth }}</td>

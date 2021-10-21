@@ -19,7 +19,7 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link nav-message" aria-current="page" href="#">Đã đăng nhập</a>
+            <a class="nav-link nav-message" aria-current="page" href="#">Welcome {{ user.username }}</a>
           </li>
           {% endif %}
           <li class="nav-item">
@@ -29,11 +29,11 @@
             <a class="nav-link" aria-current="page" href="{% url 'admin:index' %}">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'app:showdtb' %}">Show database</a>
+            <a class="nav-link" href="{% url 'app:customers_list' %}">Show database</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'app:adddtb' %}">Add database</a>
+            <a class="nav-link" href="{% url 'app:customers_create' %}">Add database</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'app:logout' %}">Log out</a>

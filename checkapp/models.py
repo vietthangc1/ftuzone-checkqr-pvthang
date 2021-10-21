@@ -3,6 +3,7 @@ from datetime import datetime
 import uuid
 from django.contrib.auth.models import User
 from django.db.models.base import Model
+from django.urls import reverse
 
 # Create your models here.
 class Customers(models.Model):
@@ -27,8 +28,11 @@ class Customers(models.Model):
       "Returns the link of qr code for user_id."
       return "http://vietthangc1.pythonanywhere.com/app/scan/"+str(self.user_id)
 
+  def get_absolute_url(self):
+    return reverse("app:customers_list")
+
   def __str__(self):
-    return self.name+self.YearofBirth+self.school
+    return self.name+"-"+self.YearofBirth+"-"+self.school
 
 class UserProfile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)

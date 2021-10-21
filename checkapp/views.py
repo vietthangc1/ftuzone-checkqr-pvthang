@@ -1,5 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.urls.base import reverse_lazy
 
 from checkapp.models import Customers
 from .forms import CustomerForm
@@ -10,35 +11,28 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.views.generic import TemplateView, ListView, CreateView, DeleteView
 
 
 # Create your views here.
 def index(req):
-  try:
-    render_dic = {'th_currentUser': currentUser}
-    print(currentUser)
-    return render(req, "checkapp/index.html", render_dic)
-  except:
-    return render(req, "checkapp/index.html")
+  return render(req, "checkapp/index.html")
 
-def showDTB(req):
-  data = Customers.objects.order_by("created_time")
-  return render(req, "checkapp/showdtb.html", {"th_data": data})
+class CustomerListView(ListView):
+  model = Customers
+  
+  def get_queryset(self):
+    return Customers.objects.order_by("created_time")
 
-@login_required
-def addDTB(req):
-  added = False
-  form = CustomerForm()
-  if req.method == "POST":
-    form = CustomerForm(req.POST)
-    if form.is_valid():
-      print("VALIDATED")
-      added = True
-      form.save()
-    else:
-      print(form.errors)
-  render_dic = {"th_form": form, "th_added": added}
-  return render(req, "checkapp/adddtb.html", render_dic)
+class CustomerCreateView(LoginRequiredMixin, CreateView):
+  form_class = CustomerForm
+  template_name = "checkapp/customer_create.html"
+
+class CustomerDeleteView(LoginRequiredMixin, DeleteView):
+  model = Customers
+  success_url = reverse_lazy("app:customers_list")
 
 def scan(req, id):
   checkFirsttime = False
@@ -76,11 +70,6 @@ def user_login(req):
 def user_logout(req):
   logout(req)
   return HttpResponseRedirect(reverse("index"))
-
-@login_required
-def delete(req, id):
-  Customers.objects.filter(user_id=id).delete()
-  return HttpResponseRedirect(reverse("app:showdtb"))
 
 @login_required
 def special(req):

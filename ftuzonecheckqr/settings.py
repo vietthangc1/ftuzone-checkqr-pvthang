@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-temp_dir = BASE_DIR/'templates'
+temp_dir = BASE_DIR/'checkapp/templates'
 media_dir = BASE_DIR/'media'
 static_dir = BASE_DIR/'static'
 
@@ -121,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [static_dir,]
+STATIC_ROOT = static_dir
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = [media_dir,]
@@ -145,6 +145,7 @@ CACHES = {
 
 #LOGIN
 LOGIN_URL = '/app/login'
+LOGIN_REDIRECT_URL = "/"
 
 import django_heroku
 
